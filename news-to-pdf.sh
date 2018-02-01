@@ -1,14 +1,13 @@
 #!/bin/bash
 #
-###########################################################################################
-# Author    :  Rajan Bhattarai
-# Website   :  https://cdrrazan.com
-###########################################################################################
-###########################################################################################
-#
-#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
-#
-###########################################################################################
+#########################################################################################
+# Author    :  Rajan Bhattarai                                                          #
+# Website   :  https://cdrrazan.com                                                     #
+#########################################################################################
+
+#########################################################################################                                                                                       #
+#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.                      #                                                                                       #
+#########################################################################################
 
 #Description
 #program to download the epaper from the kantipur.com
@@ -23,8 +22,12 @@
 # Epapers will be downloaded in the following format: Newspapername-year-month-day.pdf
 # Replace ~/Newspaper/kantipur/*/* in the download link with the directory to wherever you want to download!
 
+echo "################################################################"
+echo "###################  News-2-PDF downloader! ####################"
+echo "################################################################"
+echo ""
+echo "Checking Date with your system.. Please wait!"
 #checking the date with the system
-
 y=$(date +%Y)
 #prints the year in full format. Eg: 2017
 m=$(date +%m)
@@ -36,17 +39,27 @@ w=$(date +%u)
 
 #using wget
 #downloading the kantipur[daily-nepali]
+#checking the date with the system
+
+echo "Folder may exist. It will automatically enter into the directory if present!"
 cd ~ && mkdir Kantipur && cd kantipur
+echo "Downloading Kantipur Dainik for today.. Please wait!"
 wget -O kantipur-$y-$m-$d.pdf "http://epaper.ekantipur.com/epaper/kantipur/$y-$m-$d/$y-$m-$d.pdf"
+echo "Successfully downloaded Kantipur for today!"
+
 #downloading the kathmandu post[daily-english]
+echo "Downloading The Kathmandu Post for today.. Please wait!"
 wget -O thekathmandupost-$y-$m-$d.pdf "http://epaper.ekantipur.com/epaper/the-kathmandu-post/$y-$m-$d/$y-$m-$d.pdf"
+echo "Successfully downloaded The Kathmandu Post for today!"
 
 #Saptahik is released every friday!
 #checking the system date to match if it is friday
 #monday=1
 if [ $w == 5 ]
 then
+echo "Downloading Saptahik for this weekend.. Please wait!"
 wget -O saptahik-$y-$m-$d.pdf "http://epaper.ekantipur.com/epaper/saptahik/$y-$m-$d/$y-$m-$d.pdf"
+echo "Successfully downloaded Saptahik for this week!"
 else
 echo "Saptahik isn't available for today! Wait till Friday!"
 fi
@@ -56,8 +69,12 @@ fi
 #monday=1
 if [ $w == 7 ]
 then
+echo "Downloading Nepal for this weekend.. Please wait!"
 wget -O nepal-$y-$m-$d.pdf "http://epaper.ekantipur.com/epaper/nepal/$y-$m-$d/$y-$m-$d.pdf"
+echo "Successfully downloaded Nepal for this weekend!"
 else
 echo "Nepal magazine isn't available for today! Wait till Sunday!"
 fi
-
+echo "################################################################"
+echo "################  Operation Successfully completed! ############"
+echo "################################################################"
