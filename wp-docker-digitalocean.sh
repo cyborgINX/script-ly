@@ -63,7 +63,7 @@ fi
 echo "Docker is successfully installed!"
 #check if docker-compose package is installed
 if
-apt-cache policy docker >/dev/null 2>&1; then
+apt-cache policy docker-compose >/dev/null 2>&1; then
 echo "Docker-compose is installed. Moving onto next step."
 else
 echo "Docker-compose wasn't detected. Installing Docker-compose... Please wait."
