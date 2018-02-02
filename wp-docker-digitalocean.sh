@@ -30,12 +30,12 @@ echo "Successfully updated your system!"
 cd ~
 echo "Cloning Some Required Repos from Github.. Please wait!"
 #clone github repo in home {plz config .git}
-git clone git@github.com:cdrrazan/compose-daily.git
-git clone git@github.com:cdrrazan/script-daily.git
+git clone git@github.com:cdrrazan/compose-ly.git
+git clone git@github.com:cdrrazan/script-ly.git
 echo "Repositories have been Successfully cloned."
 
 #enter into wp-setup dir
-cd compose-daily/wordpress-setup/
+cd compose-ly/wordpress-setup/
 
 echo "Checking Requirements for the system.. Please wait!"
 #check if docker-ce is installed or not
@@ -75,7 +75,6 @@ echo "Docker-compose is successfully installed!"
 #initiates both wp and phpmyadmin
 docker-compose up
 echo "Successfully started Docker Operation!"
-#Access via IP:80 in your localhost machine.
 
 echo "################################################################"
 echo "################  Operation Successfully completed! ############"
