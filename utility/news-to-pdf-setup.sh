@@ -42,14 +42,14 @@ w=$(date +%u)
 #checking the date with the system
 
 echo "Folder may exist. It will automatically enter into the directory if present!"
-cd ~ && mkdir Kantipur && cd kantipur
+cd ~ && mkdir Kantipur && cd Kantipur
 echo "Downloading Kantipur Dainik for today.. Please wait!"
-wget -O kantipur-$y-$m-$d.pdf "http://epaper.ekantipur.com/epaper/kantipur/$y-$m-$d/$y-$m-$d.pdf"
+wget -O kantipur-$y-$m-$d "http://epaper-beta.ekantipur.com/kantipur/download/$y-$m-$d"
 echo "Successfully downloaded Kantipur for today!"
 
 #downloading the kathmandu post[daily-english]
 echo "Downloading The Kathmandu Post for today.. Please wait!"
-wget -O thekathmandupost-$y-$m-$d.pdf "http://epaper.ekantipur.com/epaper/the-kathmandu-post/$y-$m-$d/$y-$m-$d.pdf"
+wget -O kathmandupost-$y-$m-$d "http://epaper-beta.ekantipur.com/kathmandupost/download/$y-$m-$d"
 echo "Successfully downloaded The Kathmandu Post for today!"
 
 #Saptahik is released every friday!
@@ -58,7 +58,7 @@ echo "Successfully downloaded The Kathmandu Post for today!"
 if [ $w == 5 ]
 then
 echo "Downloading Saptahik for this weekend.. Please wait!"
-wget -O saptahik-$y-$m-$d.pdf "http://epaper.ekantipur.com/epaper/saptahik/$y-$m-$d/$y-$m-$d.pdf"
+wget -O saptahik-$y-$m-$d "http://epaper-beta.ekantipur.com/saptahik/download/$y-$m-$d"
 echo "Successfully downloaded Saptahik for this week!"
 else
 echo "Saptahik isn't available for today! Wait till Friday!"
@@ -70,7 +70,7 @@ fi
 if [ $w == 7 ]
 then
 echo "Downloading Nepal for this weekend.. Please wait!"
-wget -O nepal-$y-$m-$d.pdf "http://epaper.ekantipur.com/epaper/nepal/$y-$m-$d/$y-$m-$d.pdf"
+wget -O nepal-$y-$m-$d "http://epaper-beta.ekantipur.com/nepal/download/$y-$m-$d"
 echo "Successfully downloaded Nepal for this weekend!"
 else
 echo "Nepal magazine isn't available for today! Wait till Sunday!"
