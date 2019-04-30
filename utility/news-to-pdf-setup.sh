@@ -9,9 +9,9 @@
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.                      #                                                                                       #
 #########################################################################################
 
-#Description
-#program to download the epaper from the kantipur.com
-#Available Epapers by ekantipur media
+# Description
+# program to download the epaper from the kantipur.com
+# Available Epapers by ekantipur media
 #    Kantipur
 #    The Kathmandu Post
 #    Saptahik
@@ -27,34 +27,43 @@ echo "###################  News-2-PDF downloader! ####################"
 echo "################################################################"
 echo ""
 echo "Checking Date with your system.. Please wait!"
-#checking the date with the system
+# checking the date with the system
 y=$(date +%Y)
-#prints the year in full format. Eg: 2017
+# prints the year in full format. Eg: 2017
 m=$(date +%m)
-#prints the month. Eg: 04
+# prints the month. Eg: 04
 d=$(date +%d)
-#prints the day. Eg: 12
+# prints the day. Eg: 12
 w=$(date +%u)
-#prints the week day. Eg: 3=wednesday
+# prints the week day. Eg: 3=wednesday
 
-#using wget
-#downloading the kantipur[daily-nepali]
-#checking the date with the system
+# using wget
+# downloading the kantipur[daily-nepali]
+# checking the date with the system
 
 echo "Folder may exist. It will automatically enter into the directory if present!"
-cd ~ && mkdir Kantipur && cd Kantipur
+cd ~ 
+# if [ ! -d "~/Kantipur" ] 
+# then 
+# cd Kantipur
+# else 
+# mkdir Kantipur 
+# cd Kantipur
+# fi 
+mkdir epaper-$y-$m-$d 
+cd epaper-$y-$m-$d
 echo "Downloading Kantipur Dainik for today.. Please wait!"
 wget -O kantipur-$y-$m-$d "http://epaper-beta.ekantipur.com/kantipur/download/$y-$m-$d"
 echo "Successfully downloaded Kantipur for today!"
 
-#downloading the kathmandu post[daily-english]
+# downloading the kathmandu post[daily-english]
 echo "Downloading The Kathmandu Post for today.. Please wait!"
 wget -O kathmandupost-$y-$m-$d "http://epaper-beta.ekantipur.com/kathmandupost/download/$y-$m-$d"
 echo "Successfully downloaded The Kathmandu Post for today!"
 
-#Saptahik is released every friday!
-#checking the system date to match if it is friday
-#monday=1
+# Saptahik is released every friday!
+# checking the system date to match if it is friday
+# monday=1
 if [ $w == 5 ]
 then
 echo "Downloading Saptahik for this weekend.. Please wait!"
@@ -64,9 +73,9 @@ else
 echo "Saptahik isn't available for today! Wait till Friday!"
 fi
 
-#Nepal magazine is released every Sunday
-#checking the system date to match if it is Sunday
-#monday=1
+# Nepal magazine is released every Sunday
+# checking the system date to match if it is Sunday
+# monday=1
 if [ $w == 7 ]
 then
 echo "Downloading Nepal for this weekend.. Please wait!"
