@@ -9,16 +9,23 @@ echo "##########################################################################
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.                      #
 #########################################################################################
 
-rm /tmp/atom-amd64.deb
+# repo for spotify
+# https://www.spotify.com/be-nl/download/linux/
 
-wget https://atom.io/download/deb -O /tmp/atom-amd64.deb
-sudo dpkg -i /tmp/atom-amd64.deb
+# 1. Add the Spotify repository signing key to be able to verify downloaded packages
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 
+# 2. Add the Spotify repository
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 
-rm /tmp/atom-amd64.deb
+# 3. Update list of available packages
+sudo apt-get update
 
+# 4. Install Spotify
+sudo apt-get install spotify-client
 
 echo "######################################################################"
 echo "###################  Operation Successfully completed! ###############"
 echo "######################################################################"
+
 
